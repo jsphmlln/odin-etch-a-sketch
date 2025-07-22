@@ -13,24 +13,33 @@ function makeGrid(){
             gridRow.append(gridCol)
         }
         container.append(gridRow)
-        container.style.borderLeft = '0';
-        container.style.borderBottom = '0';
     }
+
+    const gridBox = document.querySelectorAll('.grid1')
+
+    gridBox.forEach(box => {
+        box.addEventListener('mouseover', () => {
+            box.style.backgroundColor = 'black'
+        })
+    })
 }
 
-let gridSize = parseInt(prompt('Define Grid Size: '));
+let gridSize = 16;
 const container = document.querySelector('#container')
+const controls = document.querySelector('#controls')
 
 makeGrid()
 
-const gridBox = document.querySelectorAll('.grid1')
+const changeGrid = document.createElement('button')
+changeGrid.classList.add('button')
+changeGrid.textContent = 'Change grid Size'
+controls.append(changeGrid)
 
-gridBox.forEach(box => {
-    box.addEventListener('mouseover', () => {
-        box.style.backgroundColor = 'black'
-    })
-    
-    // box.onclick = () => {
-    //     box.style.backgroundColor = 'black'
-    //}
-})
+changeGrid.onclick = () => {
+    gridSize = parseInt(prompt('Define Grid Size (10-100): '))
+    if (10 <= gridSize && 100 >= gridSize){
+        makeGrid()
+    } else{
+        alert('Grid size too small or too large.')
+    }
+}
