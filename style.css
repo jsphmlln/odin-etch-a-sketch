@@ -1,0 +1,25 @@
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#container{
+    display: flex;
+    flex-direction: column;
+    width: 600px;
+    height: 600px;
+    border: 1px solid black;
+}
+
+.grid{
+    display: flex;
+    flex-direction: row;
+    border-bottom: 1px solid black;
+}
+
+.grid1{
+    display: flex;
+    flex-direction: row;
+    border-left: 1px solid black;
+}
